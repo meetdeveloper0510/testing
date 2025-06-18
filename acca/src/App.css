@@ -1,0 +1,394 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+  background-color: #666;
+}
+
+/* Main Content */
+.main-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Text Section */
+.text-section {
+  max-width: 500px;
+}
+
+.text-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 4px;
+  color: #444;
+  font-weight: 400;
+}
+
+.text-content .highlight {
+  color: #e67e22;
+  font-weight: 500;
+}
+
+.text-content .brand-intro {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Visual Section */
+.visual-section {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circles-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.circle:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.circle span {
+  max-width: 80%;
+}
+
+/* Individual Circle Styles */
+.circle-1 {
+  width: 180px;
+  height: 180px;
+  background-color: #8b7d7b;
+  top: 40px;
+  left: 50px;
+  z-index: 6;
+}
+
+.circle-2 {
+  width: 160px;
+  height: 160px;
+  background-color: #a8c686;
+  top: 80px;
+  right: 80px;
+  z-index: 5;
+}
+
+.circle-3 {
+  width: 140px;
+  height: 140px;
+  background-color: #87ceeb;
+  top: 20px;
+  right: 20px;
+  z-index: 7;
+}
+
+.circle-4 {
+  width: 120px;
+  height: 120px;
+  background-color: #f4a460;
+  top: 180px;
+  right: 40px;
+  z-index: 4;
+}
+
+.circle-5 {
+  width: 200px;
+  height: 200px;
+  background-color: #dda0dd;
+  bottom: 100px;
+  left: 80px;
+  z-index: 3;
+}
+
+.circle-6 {
+  width: 130px;
+  height: 130px;
+  background-color: #d2b48c;
+  bottom: 80px;
+  right: 100px;
+  z-index: 2;
+}
+
+/* Yellow center circle */
+.circles-container::before {
+  content: 'How did we come children?';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #f9d71c;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  z-index: 8;
+  padding: 20px;
+}
+
+/* Drag Element */
+.drag-element {
+  position: absolute;
+  bottom: -60px;
+  right: -20px;
+}
+
+.drag-circle {
+  width: 180px;
+  height: 180px;
+  border: 2px dashed #999;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.drag-circle:hover {
+  border-color: #333;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.05);
+}
+
+.sideways-logo {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .text-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .visual-section {
+    height: 500px;
+  }
+  
+  .circles-container {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-content p {
+    font-size: 16px;
+  }
+  
+  .circles-container {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .circle {
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+  .circle-1 {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .circle-2 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circle-3 {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .circle-4 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circle-5 {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circle-6 {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .circles-container::before {
+    width: 120px;
+    height: 120px;
+    font-size: 12px;
+  }
+  
+  .drag-circle {
+    width: 140px;
+    height: 140px;
+    font-size: 11px;
+  }
+  
+  .sideways-logo {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+  
+  .content-wrapper {
+    gap: 40px;
+  }
+  
+  .text-content p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .circles-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .visual-section {
+    height: 400px;
+  }
+  
+  .header {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+/* Smooth animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.circle:nth-child(odd) {
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle:nth-child(even) {
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
